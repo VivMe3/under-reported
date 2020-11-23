@@ -1,0 +1,52 @@
+.ui.image {
+  display: block;
+}
+
+.featuredStory {
+  img {
+    width: 100%;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #292929;
+  }
+
+  a:hover .overlay {
+    opacity: 0.4;
+  }
+  
+  .caption {
+    position: absolute;
+    bottom: 0em;
+    left: 0em;
+    width: 100%;
+    padding: 5em 3em 3em 3em; //added more padding on top to let transparency take more effect
+    background-image:
+    linear-gradient(to bottom, rgba(75, 75, 75, 0), rgba(75, 75, 75, 1));
+  
+    .content {
+      width: 70%;
+      color: #ffffff;
+    }
+  }
+
+  i {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}

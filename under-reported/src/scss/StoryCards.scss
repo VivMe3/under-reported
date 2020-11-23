@@ -1,0 +1,44 @@
+.storycards.ui.cards {
+  justify-content: center;
+}
+
+.storycards.ui.three.cards {
+  margin: 1.25em;
+}
+
+.storycards.ui.three.cards>.card {
+  width: calc(33.33333333% - 4.5em);
+  margin: 1.8em;
+}
+
+.ui.card, .ui.cards>.card, .ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards .card:hover, a.ui.card:hover {
+  box-shadow: none;
+}
+
+.ui.card>.image, .ui.cards>.card>.image {
+  background: none;
+}
+
+.content {
+  color: black;
+  margin-top: 0.6em;
+}
+
+.storycards {
+  a:hover {
+    text-decoration: none;
+  }
+
+  .card:hover {
+    .content {
+      color: #636363;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .ui.stackable.cards>.card {
+    margin: 3em 1em;
+  }
+}
+
