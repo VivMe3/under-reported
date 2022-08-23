@@ -14,7 +14,7 @@ const FeaturedStory = ({ link, title, description }) => {
           </div>
         </div>
         <div className="overlay">
-          <i class="arrow circle right icon big"></i>
+          <i className="arrow circle right icon big"></i>
         </div>
       </a>
     </div>

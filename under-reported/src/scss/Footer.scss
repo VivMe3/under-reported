@@ -1,0 +1,16 @@
+@import "./_variables";
+
+.footer {
+    background-color: $purple;
+    text-align: center;
+    padding: 0.5em;
+
+    .white-icon {
+        color: white;
+        padding: 0.5em;
+    
+        &:hover{ 
+            color: lightgray;
+        }
+    }
+}

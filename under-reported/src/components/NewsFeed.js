@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../scss/NewsFeed.scss';
 
 const NewsFeed = ({ news }) => {
@@ -18,7 +19,7 @@ const NewsFeed = ({ news }) => {
       <h2 className="header">Latest News</h2>
       {renderedNews}
       <div className="viewMore" >
-        <a href="https://www.google.com">View More News <i class="arrow circle right icon"></i></a>
+        <Link to="/view-more-news">View More News <i className="arrow circle right icon"></i></Link>
       </div>
     </div>
   )
