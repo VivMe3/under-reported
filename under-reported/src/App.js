@@ -24,6 +24,7 @@ export default () => {
       <Routes>
         <Route path="/" element={<Home/>} exact/>
         <Route path="view-more-news" element={<ViewMoreNews />} />
+        <Route path="under-reported" element={<Home/>} exact/>
         <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer />
