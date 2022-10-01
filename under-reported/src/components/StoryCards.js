@@ -8,10 +8,8 @@ const StoryCards = ({ cards }) => {
       <div key={`story-${index}`} className="card">
         <a className="image" href="https://www.google.com">
           <img src={Random} alt="Random" />
-          <div className="content">
-            <h3>{card.title}</h3>
-            <p>{card.description}</p>
-          </div>
+            <h3 className="title">{card.title}</h3>
+            <p className="content">{card.description}</p>
         </a>
       </div >
     )

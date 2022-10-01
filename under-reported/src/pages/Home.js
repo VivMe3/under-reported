@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import '../scss/Home.scss';
 import FeaturedStory from '../components/FeaturedStory';
 import NewsFeed from '../components/NewsFeed';
 import StoryCards from '../components/StoryCards';
@@ -51,8 +52,7 @@ const news = [
 const Home = () => {
     return (
         <Fragment>
-
-          <div className="container-fluid">
+          <div className="home container-fluid">
             <div className="row">
               <div className="col-lg">
                 {<FeaturedStory title={featTitle} link={featLink} description={featDescription} />}

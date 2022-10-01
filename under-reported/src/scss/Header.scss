@@ -1,5 +1,11 @@
 @import "./_variables";
 
+.navbar {
+    .container-fluid {
+        width: 100%;
+    }
+}
+
 .logo {
     width: 5em;
 }
@@ -11,9 +17,10 @@
         padding-right: 2em;
 
             color: black;
+            font-weight: bold;
 
             &:hover {
-                color: #636363;
+                text-decoration: underline;
             }
 
     }

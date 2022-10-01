@@ -1,3 +1,5 @@
+@import "./_variables";
+
 .newsfeed {
   height: 100%;
   background-color: #F6F6F6;
@@ -5,7 +7,7 @@
 
   .header {
     padding-bottom: 0.5em;
-    border-bottom: #4b0082 0.3em solid;
+    border-bottom: $purple 0.3em solid;
   }
 
   .newsItem {
@@ -17,15 +19,16 @@
         text-decoration: none;
 
         &:hover {
-          color: #636363;
-          text-decoration: underline;
+          .title {
+            text-decoration: underline;
+          }
 
           .content {
-            color: #8A8A8A;
+            text-decoration: none;
           }
 
           .meta {
-            color: #8A8A8A;
+            text-decoration: none;
           }
         }
       }
@@ -45,11 +48,11 @@
     padding: 2em 0;
 
     a{ 
-      color: #4b0082;
+      color: $purple;
       text-decoration: none;
 
       &:hover {
-        color: #7F49A7;
+        color: mix(white, $purple, 30%);
         text-decoration: underline;
       }
     }

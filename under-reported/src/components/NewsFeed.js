@@ -7,7 +7,7 @@ const NewsFeed = ({ news }) => {
     return (
       <div key={`news-${index}`} className="newsItem">
         <a href="https://www.google.com">
-          <h4>{item.title}</h4>
+          <h4 className="title">{item.title}</h4>
           <div className="content">{item.description}</div>
           <div className="meta"><i className="calendar icon"></i> {item.date}</div>
         </a>
@@ -19,7 +19,7 @@ const NewsFeed = ({ news }) => {
       <h2 className="header">Latest News</h2>
       {renderedNews}
       <div className="viewMore" >
-        <Link to="/view-more-news">View More News <i className="arrow circle right icon"></i></Link>
+        <Link to="/more-news">View More News <i className="arrow circle right icon"></i></Link>
       </div>
     </div>
   )

@@ -1,0 +1,42 @@
+@import "./_variables";
+
+.view-more-cards {
+    padding: 2em;
+
+    .item {
+        color: black;
+        padding: 3em 0;
+        border-bottom: 0.01em solid #d3d3d3;
+
+        &:first-child {
+            padding-top: 1em;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .date {
+            color: $gray;
+        }
+    }
+
+    a {
+        &:hover {
+            text-decoration: none;
+            
+            .title {
+              text-decoration: underline;
+            }
+      
+            .content {
+              text-decoration: none;
+            }
+            
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+}

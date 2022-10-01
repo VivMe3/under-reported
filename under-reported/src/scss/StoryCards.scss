@@ -26,17 +26,23 @@
 
 .storycards {
   a {
-    text-decoration: none;
+    color: black;
+
+    .title {
+      margin-top: 0.6em;
+    }
     
     &:hover {
-      text-decoration: underline;
-    }
-  }
-  
+      text-decoration: none;
+      
+      .title {
+        text-decoration: underline;
+      }
 
-  .card:hover {
-    .content {
-      color: #636363;
+      .content {
+        text-decoration: none;
+      }
+      
     }
   }
 }

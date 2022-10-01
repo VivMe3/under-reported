@@ -12,7 +12,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import './scss/App.scss';
 
 import Home from './pages/Home';
-import ViewMoreNews from './pages/ViewMoreNews';
+import MoreNews from './pages/MoreNews';
 import NoPage from './pages/NoPage';
 
 library.add(fab)
@@ -24,7 +24,7 @@ export default () => {
       <Routes>
         <Route path="/" element={<Home/>} exact/>
         <Route path="under-reported" element={<Home/>} exact/>
-        <Route path="view-more-news" element={<ViewMoreNews />} />
+        <Route path="more-news" element={<MoreNews />} />
         <Route path="business" element={<NoPage />} />
         <Route path="health" element={<NoPage />} />
         <Route path="entertainment" element={<NoPage />} />

@@ -1,8 +1,11 @@
 // @import "node_modules/bootstrap/scss/bootstrap";
+@import "./_variables";
+
 
 h1 {
     font-size: 2.25em;
     font-weight: bold;
+    color: $purple;
 }
 
 h2 {
@@ -20,14 +23,14 @@ h4 {
     font-weight: bold;
 }
 
-.container-fluid {
-    padding-left: 0em;
-    padding-right: 0em;
+.box {
+    margin: 2em 4em;
 }
 
-.col-lg, .col-lg-3 {
-    padding-right: 0;
-    padding-left: 0;
+.container-fluid {
+    width: auto;
+    padding-left: 0em;
+    padding-right: 0em;
 }
 
 .row {
