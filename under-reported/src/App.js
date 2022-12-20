@@ -1,5 +1,6 @@
 import React, { useState, Fragment, Component } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import Accordion from './components/Accordion';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
@@ -14,6 +15,7 @@ import './scss/App.scss';
 import Home from './pages/Home';
 import MoreNews from './pages/MoreNews';
 import Category from './pages/Category';
+import BlogPost from "./pages/BlogPost";
 import NoPage from './pages/NoPage';
 
 library.add(fab)
@@ -152,19 +154,27 @@ const sportsCards = [
 ];
 
 export default () => {
+  const history = createBrowserHistory();
+
+  const [getBlogContent, setGetBlogContent] = useState([]);
+  const getData = (blog) => {
+    setGetBlogContent(blog);
+  }
+
   return (
     <Fragment>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home/>} exact/>
+      <Routes history={history}>
+        <Route path="/" element={<Home data={getData}/>} exact/>
         <Route path="under-reported" element={<Home/>} exact/>
         <Route path="more-news" element={<MoreNews />} />
-        <Route path="business" element={<Category category="Business" cards={businessCards} />} />
+        <Route path="business" element={<Category category="Business" cards={businessCards} data={getData}/>} />
         <Route path="health" element={<Category category="Health" cards={healthCards} />} />
         <Route path="entertainment" element={<Category category="Entertainment" cards={entertainmentCards} />} />
         <Route path="science" element={<Category category="Science" cards={scienceCards} />} />
         <Route path="tech" element={<Category category="Tech" cards={techCards} />} />
         <Route path="sports" element={<Category category="Sports" cards={sportsCards} />} />
+        <Route path="/blog/:id" element={<BlogPost content={getBlogContent}/>} />
         <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer />
@@ -176,3 +186,10 @@ export default () => {
 // https://dev.to/dsckiitdev/dynamic-pages-using-react-router-2pm
 // https://github.com/khansalikaziz/NewsZilla---News-Application-with-React?ref=reactjsexample.com
 // share link: https://www.npmjs.com/package/react-share , https://dev.to/dsasse07/implementing-a-social-share-feature-jd7 
+
+// API setup with node.js and mongodb: https://www.codementor.io/@olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd 
+// API with express and deploying api to heroku: https://rapidapi.com/blog/nodejs-express-rest-api-example/
+
+// use blogger api: https://developers.google.com/blogger/docs/3.0/performance
+// get image from blogger api: https://stackoverflow.com/questions/42609433/thumbnail-of-blogger-post-url-using-blogger-api
+// blogger api breakdown: https://developers.google.com/blogger/docs/3.0/reference/posts#resource

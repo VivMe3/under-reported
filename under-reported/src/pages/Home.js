@@ -1,8 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import '../scss/Home.scss';
 import FeaturedStory from '../components/FeaturedStory';
 import NewsFeed from '../components/NewsFeed';
 import StoryCards from '../components/StoryCards';
+import EmptyList from '../components/EmptyList';
+import BlogList from '../components/BlogList';
+import { blogList } from '../config/Api';
 
 //Featured Story
 const featLink = "https://google.com";
@@ -49,7 +52,20 @@ const news = [
   },
 ]
 
-const Home = () => {
+const Home = ({data}) => {
+
+  const [blogs, setBlogs] = useState([]);
+
+  const BlogContent = (id) => {
+    data(id);
+  }
+
+  useEffect(() => {
+    blogList().then((res) => {
+        setBlogs(res);
+    })
+  } , []);
+
     return (
         <Fragment>
           <div className="home container-fluid">
@@ -62,6 +78,8 @@ const Home = () => {
                 <NewsFeed news={news} />
               </div>
             </div>
+            {/* Blog List & Empty View */}
+            {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} content = {BlogContent}/>}
           </div>
         </Fragment>
       );

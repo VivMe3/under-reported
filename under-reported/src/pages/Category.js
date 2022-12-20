@@ -1,6 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import '../scss/Category.scss';
 import StoryCards from '../components/StoryCards';
+import EmptyList from '../components/EmptyList';
+import BlogList from '../components/BlogList';
+import { blogList } from '../config/Api';
 
 //StoryCards
 const cards = [
@@ -36,14 +39,28 @@ const cards = [
   }
 ];
 
-const Category = (props) => {
+const Category = ({ category, cards, data }) => {
+
+  const [blogs, setBlogs] = useState([]);
+
+  const BlogContent = (id) => {
+    data(id);
+  }
+
+  useEffect(() => {
+    blogList().then((res) => {
+        setBlogs(res);
+    })
+  } , []);
+
     return (
         <Fragment>
           <div className="category-container container-fluid">
-            <h1>{props.category}</h1>
+            <h1>{category}</h1>
             <div className="row">
               <div className="col-lg">
-                <StoryCards cards={props.cards} />
+                <StoryCards cards={cards} />
+                {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} content = {BlogContent}/>}
               </div>
             </div>
           </div>
