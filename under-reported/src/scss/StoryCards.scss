@@ -19,6 +19,13 @@
   background: none;
 }
 
+.ui.card>.image img, .ui.cards>.card>.image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: .28571429rem;
+}
+
 .content {
   color: black;
   margin-top: 0.6em;

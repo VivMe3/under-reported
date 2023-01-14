@@ -33,6 +33,10 @@ h4 {
     padding-right: 0em;
 }
 
+.main-body {
+  min-height: calc(100vh - 15rem);
+}
+
 .row {
     margin-left: 0;
     margin-right: 0;
@@ -88,9 +92,9 @@ input {
   color: #a9a9a9;
   font-weight: 500;
 }
-.blog-wrap img {
-  width: 100%;
-}
+// .blog-wrap img {
+//   width: 100%;
+// }
 .blog-subCategory {
   display: flex;
   justify-content: center;

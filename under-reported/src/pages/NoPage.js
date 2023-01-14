@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 
 const NoPage = () => {
     return (
-        <Fragment>
+        <div className="main-body">
             <h1>404 Page Not Found</h1>
-        </Fragment>
+        </div>
       );
 }
 

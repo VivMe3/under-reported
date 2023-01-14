@@ -3,7 +3,7 @@ import '../scss/Category.scss';
 import StoryCards from '../components/StoryCards';
 import EmptyList from '../components/EmptyList';
 import BlogList from '../components/BlogList';
-import { blogList } from '../config/Api';
+import { categoryBlogList } from '../config/Api';
 
 //StoryCards
 const cards = [
@@ -43,24 +43,19 @@ const Category = ({ category, cards, data }) => {
 
   const [blogs, setBlogs] = useState([]);
 
-  const BlogContent = (id) => {
-    data(id);
-  }
-
   useEffect(() => {
-    blogList().then((res) => {
+    categoryBlogList(category.toLowerCase()).then((res) => {
         setBlogs(res);
     })
-  } , []);
+  } , [category]);
 
     return (
         <Fragment>
-          <div className="category-container container-fluid">
+          <div className="category-container container-fluid main-body">
             <h1>{category}</h1>
             <div className="row">
               <div className="col-lg">
-                <StoryCards cards={cards} />
-                {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} content = {BlogContent}/>}
+                {!blogs ? <EmptyList /> : <StoryCards blogs={blogs}/>}
               </div>
             </div>
           </div>

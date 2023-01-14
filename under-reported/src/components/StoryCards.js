@@ -1,19 +1,37 @@
 import React from 'react';
 import '../scss/StoryCards.scss';
+import { Link } from 'react-router-dom';
+
 import Random from '../imgs/random.jpg';
 
-const StoryCards = ({ cards }) => {
-  const renderedCards = cards.map((card, index) => {
+const StoryCards = ({ cards, blogs }) => {
+
+  const getFirstImage = (content) => {
+    let imgTag = content.match(/<img([\w\W]+?)>/g);
+    if (imgTag) {
+      let newImgTag = imgTag[0].replace("/>", " referrerpolicy='no-referrer' />");
+      console.log(newImgTag);
+      return newImgTag;
+    }
+  }
+
+  console.log('blogs',blogs);
+  const renderedCards = blogs.map((blog, index) => {
     return (
       <div key={`story-${index}`} className="card">
-        <a className="image" href="https://www.google.com">
+        <Link className="image" to={`/blog/${blog.id}`}> 
+        {getFirstImage(blog.content) &&
+         <div className='blog-content' dangerouslySetInnerHTML={{__html: getFirstImage(blog.content)}}></div>
+        }
+        {!getFirstImage(blog.content) && 
           <img src={Random} alt="Random" />
-            <h3 className="title">{card.title}</h3>
-            { card.date && 
-              <p className="date">{card.date}</p>
+        }
+            <h3 className="title">{blog.title}</h3>
+            { blog.published && 
+              <p className="date">{blog.published}</p>
             }
-            <p className="content">{card.description}</p>
-        </a>
+            <p className="content">{blog.description? 'description': ''}</p>
+        </Link>
       </div >
     )
   })

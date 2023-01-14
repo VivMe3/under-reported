@@ -40,7 +40,7 @@ const moreNews = [
 const MoreNews = () => {
     return (
         <Fragment>
-            <div className="box container-fluid">
+            <div className="box container-fluid main-body">
             <div className="row">
               <div className="col-lg">
                 <h1>More News</h1>

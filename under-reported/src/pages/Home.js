@@ -68,18 +68,18 @@ const Home = ({data}) => {
 
     return (
         <Fragment>
-          <div className="home container-fluid">
+          <div className="home container-fluid main-body">
             <div className="row">
               <div className="col-lg">
                 {<FeaturedStory title={featTitle} link={featLink} description={featDescription} />}
-                <StoryCards cards={cards} />
+                <StoryCards blogs={blogs}/>
               </div>
               <div className="col-lg-3">
                 <NewsFeed news={news} />
               </div>
             </div>
             {/* Blog List & Empty View */}
-            {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} content = {BlogContent}/>}
+            {/* {!blogs.length ? <EmptyList /> : <StoryCards blogs={blogs}/>} */}
           </div>
         </Fragment>
       );

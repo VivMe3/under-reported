@@ -193,3 +193,10 @@ export default () => {
 // use blogger api: https://developers.google.com/blogger/docs/3.0/performance
 // get image from blogger api: https://stackoverflow.com/questions/42609433/thumbnail-of-blogger-post-url-using-blogger-api
 // blogger api breakdown: https://developers.google.com/blogger/docs/3.0/reference/posts#resource
+
+// https://buttercms.com/blog/how-to-create-a-blog-with-react/ 
+// https://web.postman.co/workspace/HHS~c5779602-71fe-4fea-b72d-2c51c2ab5957/request/create?requestId=76862892-e2f4-4182-a580-8e945e9378c5
+
+// fix refresh issue for dynamic pages
+// 404 on github pages
+// get posts by tags for category pages
