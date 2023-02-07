@@ -15,6 +15,16 @@ const StoryCards = ({ cards, blogs }) => {
     }
   }
 
+  let option = {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  }
+
+  function convertDate(date) {
+    return new Date(date).toLocaleDateString('en-US',option);
+  }
+
   console.log('blogs',blogs);
   const renderedCards = blogs.map((blog, index) => {
     return (
@@ -28,7 +38,7 @@ const StoryCards = ({ cards, blogs }) => {
         }
             <h3 className="title">{blog.title}</h3>
             { blog.published && 
-              <p className="date">{blog.published}</p>
+              <p className="date">{convertDate(blog.published)}</p>
             }
             <p className="content">{blog.description? 'description': ''}</p>
         </Link>
