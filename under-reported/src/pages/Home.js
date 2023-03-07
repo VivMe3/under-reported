@@ -4,8 +4,8 @@ import FeaturedStory from '../components/FeaturedStory';
 import NewsFeed from '../components/NewsFeed';
 import StoryCards from '../components/StoryCards';
 import EmptyList from '../components/EmptyList';
-import BlogList from '../components/BlogList';
-import { blogList } from '../config/Api';
+// import BlogList from '../components/BlogList';
+import { blogPost } from '../config/Api';
 
 //Featured Story
 const featLink = "https://google.com";
@@ -13,20 +13,27 @@ const featTitle = "South Africa: Alexander Forbes adds more Rainbow to its mix";
 const featDescription = "An intricately woven set of transactions will result in one of Africa's richest men owning a sizeable portion of Alexander Forbes through his...";
 
 //StoryCards
+// const cards = [
+//   {
+//     title: "South Africa: Alexander Forbes adds more Rainbow to its mix",
+//     description: "An intricately woven set of transactions will result in one of Africa's richest men owning a sizeable portion of Alexander Forbes through his..."
+//   },
+//   {
+//     title: "South Africa: Alexander Forbes adds more Rainbow to its mix",
+//     description: "An intricately woven set of transactions will result in one of Africa's richest men owning a sizeable portion of Alexander Forbes through his..."
+//   },
+//   {
+//     title: "South Africa: Alexander Forbes adds more Rainbow to its mix",
+//     description: "An intricately woven set of transactions will result in one of Africa's richest men owning a sizeable portion of Alexander Forbes through his..."
+//   }
+// ];
+
 const cards = [
-  {
-    title: "South Africa: Alexander Forbes adds more Rainbow to its mix",
-    description: "An intricately woven set of transactions will result in one of Africa's richest men owning a sizeable portion of Alexander Forbes through his..."
-  },
-  {
-    title: "South Africa: Alexander Forbes adds more Rainbow to its mix",
-    description: "An intricately woven set of transactions will result in one of Africa's richest men owning a sizeable portion of Alexander Forbes through his..."
-  },
-  {
-    title: "South Africa: Alexander Forbes adds more Rainbow to its mix",
-    description: "An intricately woven set of transactions will result in one of Africa's richest men owning a sizeable portion of Alexander Forbes through his..."
-  }
-];
+  {id: '5902186712207754525'}, //testing
+  {id: '4665982065570606416'}, //another post
+  {id: '890454697808030910'}, //hello
+]
+
 
 //NewsFeed
 const news = [
@@ -52,18 +59,14 @@ const news = [
   },
 ]
 
-const Home = ({data}) => {
+const Home = () => {
 
-  const [blogs, setBlogs] = useState([]);
-
-  const BlogContent = (id) => {
-    data(id);
-  }
+  const [storyBlogs, setStoryBlogs] = useState([]);
 
   useEffect(() => {
-    blogList().then((res) => {
-        setBlogs(res);
-    })
+    (async function() {
+      setStoryBlogs(await Promise.all(cards.map(card => blogPost(card.id))));
+    })()
   } , []);
 
     return (
@@ -72,7 +75,7 @@ const Home = ({data}) => {
             <div className="row">
               <div className="col-lg">
                 {<FeaturedStory title={featTitle} link={featLink} description={featDescription} />}
-                <StoryCards blogs={blogs}/>
+                <StoryCards blogs={storyBlogs}/>
               </div>
               <div className="col-lg-3">
                 <NewsFeed news={news} />

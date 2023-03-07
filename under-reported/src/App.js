@@ -182,6 +182,8 @@ export default () => {
   );
 };
 
+// Vivian Blogger: https://vivirie.blogspot.com/
+
 // https://v5.reactrouter.com/web/example/recursive-paths 
 // https://dev.to/dsckiitdev/dynamic-pages-using-react-router-2pm
 // https://github.com/khansalikaziz/NewsZilla---News-Application-with-React?ref=reactjsexample.com
@@ -197,6 +199,5 @@ export default () => {
 // https://buttercms.com/blog/how-to-create-a-blog-with-react/ 
 // https://web.postman.co/workspace/HHS~c5779602-71fe-4fea-b72d-2c51c2ab5957/request/create?requestId=76862892-e2f4-4182-a580-8e945e9378c5
 
-// fix refresh issue for dynamic pages
-// 404 on github pages
-// get posts by tags for category pages
+// https://javascript.plainenglish.io/build-a-blog-app-with-react-building-components-part-2-5b079c7da924
+// https://javascript.plainenglish.io/build-a-blog-app-with-react-components-and-hooks-part-3-facc1efe1fb3

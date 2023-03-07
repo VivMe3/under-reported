@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { blogList } from '../config/Api';
+
 import '../scss/NewsFeed.scss';
 
 const NewsFeed = ({ news }) => {
+  const [blogs, setBlogs] = useState([]);
+  const [latestNews, setLatestNews] = useState([]);
+
+    useEffect(() => {
+      blogList().then((res) => {
+        setBlogs(res);
+      })
+      // (async function() {
+      //   const test = (await Promise.all(cards.map(card => blogPost(card.id))));
+      //   console.log(test);
+      // })()
+    } , []);
+
+    console.log(blogs);
   const renderedNews = news.map((item, index) => {
     return (
       <div key={`news-${index}`} className="newsItem">
@@ -14,6 +30,7 @@ const NewsFeed = ({ news }) => {
       </div>
     )
   })
+  
   return (
     <div className="newsfeed">
       <h2 className="header">Latest News</h2>

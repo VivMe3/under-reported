@@ -9,17 +9,23 @@ export const blogPost = (post_id) => {
   const url = `
   ${base_url}${blog_id}/posts/${post_id}?key=${api_key}`;
   return axios.get(url).then((res) => {
-    console.log('res', res.data);
     return res.data;
   });
 };
 
+// using first comment of a blog for description
+export const blogPostDescription = (post_id) => {
+  const url = `
+  ${base_url}${blog_id}/posts/${post_id}/comments?key=${api_key}`;
+  return axios.get(url).then((res) => {
+      return res.data;
+  });
+};
 
 export const blogList = async () => {
   const url = `
   ${base_url}${blog_id}/posts?key=${api_key}`;
   return axios.get(url).then((res) => {
-    console.log('res', res.data.items);
     return res.data.items;
   });
 };
@@ -28,7 +34,6 @@ export const categoryBlogList = async (category) => {
   const url = `
   ${base_url}${blog_id}/posts?labels=${category}&key=${api_key}`;
   return axios.get(url).then((res) => {
-    console.log('res', res.data.items);
     return res.data.items;
   });
 };
