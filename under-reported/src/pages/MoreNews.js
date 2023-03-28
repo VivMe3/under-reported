@@ -2,6 +2,9 @@ import React, { Fragment } from 'react';
 import MoreNewsCards from '../components/MoreNewsCards';
 import Random from '../imgs/random.jpg';
 
+//https://www.npmjs.com/package/react-infinite-scroll-component
+//https://codesandbox.io/s/yk7637p62z
+
 const moreNews = [
     {
       title: "Kenya: Private healthcare requires intensive care and better regulation",

@@ -1,7 +1,8 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../scss/StoryCards.scss';
 import { Link } from 'react-router-dom';
 import { blogPostDescription } from '../config/Api';
+import { getFirstImage, convertDate, handleDescription } from '../utils/Utils';
 
 import Random from '../imgs/random.jpg';
 
@@ -9,43 +10,17 @@ const StoryCards = ({ blogs }) => {
   //https://eszter.space/async-map/ 
   // blogger comment: https://developers.google.com/blogger/docs/3.0/using#RetrievingASpecificComment
   const [descriptions, setDescriptions] = useState([]);
+  let dateFormat = {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  }
 
   useEffect(() => {
     (async function() {
       setDescriptions(await Promise.all(blogs.map(blog => blogPostDescription(blog.id))));
     })()
   } , [blogs]);
-
-  const getFirstImage = (content) => {
-    let imgTag = content.match(/<img([\w\W]+?)>/g);
-    if (imgTag) {
-      let newImgTag = imgTag[0].replace("/>", " referrerpolicy='no-referrer' />");
-      return newImgTag;
-    }
-  }
-
-  let option = {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric'
-  }
-
-  function convertDate(date) {
-    return new Date(date).toLocaleDateString('en-US',option);
-  }
-
-  function handleDescription(e) {
-    const description = new DOMParser().parseFromString(e, 'text/html');
-    const truncated = truncateString(description.body.innerHTML, 150);
-    return truncated;
-  }
-
-  function truncateString(str, num) {
-    if (str.length <= num) {
-      return str
-    }
-    return str.slice(0, num) + '...'
-  }
 
   const renderedCards = blogs.map((blog, index) => {
       return (
@@ -59,7 +34,7 @@ const StoryCards = ({ blogs }) => {
         }
             <h3 className="title">{blog.title}</h3>
             { blog.published && 
-              <p className="date">{convertDate(blog.published)}</p>
+              <p className="date">{convertDate(blog.published, dateFormat)}</p>
             }
             <p className="content">{descriptions[index] && descriptions[index].items ? handleDescription(descriptions[index].items[0]['content']) : ''}</p>
         </Link>

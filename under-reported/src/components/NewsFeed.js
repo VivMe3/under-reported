@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { blogList } from '../config/Api';
+import { blogPostDescription } from '../config/Api';
+import { convertDate, handleDescription } from '../utils/Utils';
 
 import '../scss/NewsFeed.scss';
 
-const NewsFeed = ({ news }) => {
-  const [blogs, setBlogs] = useState([]);
-  const [latestNews, setLatestNews] = useState([]);
+const NewsFeed = ({ blogs }) => {
+  const [descriptions, setDescriptions] = useState([]);
+  let dateFormat = {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  }
 
-    useEffect(() => {
-      blogList().then((res) => {
-        setBlogs(res);
-      })
-      // (async function() {
-      //   const test = (await Promise.all(cards.map(card => blogPost(card.id))));
-      //   console.log(test);
-      // })()
-    } , []);
+  useEffect(() => {
+    (async function () {
+      setDescriptions(await Promise.all(blogs.map(blog => blogPostDescription(blog.id))));
+    })()
+  }, [blogs]);
 
-    console.log(blogs);
-  const renderedNews = news.map((item, index) => {
+  const renderedNews = blogs.map((blog, index) => {
     return (
       <div key={`news-${index}`} className="newsItem">
-        <a href="https://www.google.com">
-          <h4 className="title">{item.title}</h4>
-          <div className="content">{item.description}</div>
-          <div className="meta"><i className="calendar icon"></i> {item.date}</div>
-        </a>
+        <Link to={`/blog/${blog.id}`}>
+          <h4 className="title">{blog.title}</h4>
+          <div className="content">{descriptions[index] && descriptions[index].items ? handleDescription(descriptions[index].items[0]['content']) : ''}</div>
+          <div className="meta"><i className="calendar icon"></i> {convertDate(blog.published, dateFormat)}</div>
+        </Link>
       </div>
     )
   })
