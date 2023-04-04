@@ -8,8 +8,8 @@ import Translate from './components/Translate';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 import './scss/App.scss';
 
 import Home from './pages/Home';
@@ -18,7 +18,7 @@ import Category from './pages/Category';
 import BlogPost from "./pages/BlogPost";
 import NoPage from './pages/NoPage';
 
-library.add(fab)
+library.add(fab);
 
 const businessCards = [
   {
