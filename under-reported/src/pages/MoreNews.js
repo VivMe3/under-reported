@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import MoreNewsCards from '../components/MoreNewsCards';
 import InfiniteScroll from "react-infinite-scroll-component";
 import { blogList } from '../config/Api';
+import '../scss/MoreNews.scss';
 
 import Random from '../imgs/random.jpg';
 
@@ -32,7 +33,7 @@ const MoreNews = () => {
 
     return (
         <Fragment>
-          <div className="box container-fluid main-body">
+          <div className="more-news-container container-fluid main-body">
             <div className="row">
               <div className="col-lg">
                 <h1>More News</h1>
@@ -46,7 +47,7 @@ const MoreNews = () => {
                     </p>
                   }
                   endMessage={
-                    <div>
+                    <div style={{ paddingBottom: '2rem' }}>
                       <p style={{ textAlign: 'center' }}>
                         <b>No more news items</b>
                       </p>

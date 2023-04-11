@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const blog_id = '7468781480923909675';
+const blog_id = '8627575264260097793';
 const api_key = process.env.REACT_APP_API_KEY;
 const base_url = 'https://www.googleapis.com/blogger/v3/blogs/';
 

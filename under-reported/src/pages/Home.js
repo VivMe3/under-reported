@@ -8,13 +8,13 @@ import EmptyList from '../components/EmptyList';
 import { blogPost, blogList } from '../config/Api';
 
 //Featured Story
-const featuredStoryID = '4665982065570606416';
+const featuredStoryID = '5167575882235143189';
 
 //Bottom 3 Stories
 const cards = [
-  {id: '5902186712207754525'}, //testing
-  {id: '4665982065570606416'}, //another post
-  {id: '890454697808030910'}, //hello
+  {id: '5167575882235143189'}, //testing
+  {id: '2612160509708525381'}, //another post
+  {id: '5629965884021217700'}, //hello
 ]
 
 const Home = () => {

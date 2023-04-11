@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import '../scss/MoreNewsCards.scss';
+import '../scss/MoreNews.scss';
 import { Link } from 'react-router-dom';
 import { blogPostDescription } from '../config/Api';
 import { getFirstImage, convertDate, handleDescription } from '../utils/Utils';

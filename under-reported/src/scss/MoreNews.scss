@@ -1,5 +1,9 @@
 @import "./_variables";
 
+.more-news-container {
+    margin: 0 10%;
+}
+
 .view-more-cards {
     padding: 2em;
 
@@ -37,4 +41,8 @@
         width: 100%;
         height: auto;
     }
+
+    @media only screen and (max-width: 767px) {
+        padding: 1rem;
+      }
 }
