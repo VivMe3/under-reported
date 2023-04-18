@@ -19,25 +19,20 @@ library.add(fab);
 export default () => {
   const history = createBrowserHistory();
 
-  const [getBlogContent, setGetBlogContent] = useState([]);
-  const getData = (blog) => {
-    setGetBlogContent(blog);
-  }
-
   return (
     <Fragment>
       <Header />
       <Routes history={history}>
-        <Route path="/" element={<Home data={getData}/>} exact/>
+        <Route path="/" element={<Home />} exact/>
         <Route path="under-reported" element={<Home/>} exact/>
         <Route path="more-news" element={<MoreNews />} />
-        <Route path="business" element={<Category category="Business" data={getData}/>} />
+        <Route path="business" element={<Category category="Business" />} />
         <Route path="health" element={<Category category="Health" />} />
         <Route path="entertainment" element={<Category category="Entertainment" />} />
         <Route path="science" element={<Category category="Science" />} />
         <Route path="tech" element={<Category category="Tech" />} />
         <Route path="sports" element={<Category category="Sports" />} />
-        <Route path="/blog/:id" element={<BlogPost content={getBlogContent}/>} />
+        <Route path="/blog/:id" element={<BlogPost />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer />
