@@ -6,20 +6,24 @@ import '../scss/Category.scss';
 
 const Category = ({ category }) => {
   const [blogs, setBlogs] = useState([]);
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(9);
   const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const defaultNumberOfPosts = 9;
+  const increaseIndexBy = 3;
 
   useEffect(() => {
     categoryBlogList(category.toLowerCase()).then((res) => {
       if (res) {
-        setBlogs(res.slice(0, 9));
+        setBlogs(res.slice(0, defaultNumberOfPosts));
         if (res.length <= index) {
           setHasMore(false);
         } else {
-          setIndex(index + 3)
+          setIndex(index + increaseIndexBy)
         }
       }
     })
+    setLoading(false);
   }, [category]);
 
   function getMore() {
@@ -28,7 +32,7 @@ const Category = ({ category }) => {
       if (res.length <= index) {
         setHasMore(false);
       } else {
-        setIndex(index + 3)
+        setIndex(index + increaseIndexBy)
       }
     });
   }
@@ -39,7 +43,14 @@ const Category = ({ category }) => {
         <h1>{category}</h1>
         <div className="row">
           <div className="col-lg">
-            {blogs.length === 0 &&
+            {loading && 
+              <div>
+                <p style={{ textAlign: 'center' }}>
+                  <b>Loading...</b>
+                </p>
+              </div>
+            }
+            {!loading && blogs.length === 0 && !hasMore && 
               <div>
                 <p style={{ textAlign: 'center' }}>
                   <b>No news items</b>

@@ -8,10 +8,12 @@ const MoreNews = () => {
   const [news, setNews] = useState([]);
   const [index, setIndex] = useState(3);
   const [hasMore, setHasMore] = useState(true);
+  const defaultNumberOfPosts = 3;
+  const increaseIndexBy = 2;
 
   useEffect(() => {
     blogList().then((res) => {
-      setNews(res.slice(0, 3));
+      setNews(res.slice(0, defaultNumberOfPosts));
     });
   }, []);
 
@@ -21,7 +23,7 @@ const MoreNews = () => {
       if (res.length <= index) {
         setHasMore(false);
       } else {
-        setIndex(index + 2)
+        setIndex(index + increaseIndexBy)
       }
     });
   }
