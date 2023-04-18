@@ -7,8 +7,6 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const StoryCards = ({ blogs }) => {
-  //https://eszter.space/async-map/ 
-  // blogger comment: https://developers.google.com/blogger/docs/3.0/using#RetrievingASpecificComment
   const [descriptions, setDescriptions] = useState([]);
   let dateFormat = {
     day: '2-digit',
