@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const NoPage = () => {
-    return (
-        <div className="main-body">
-            <h1>404 Page Not Found</h1>
-        </div>
-      );
+  return (
+    <div className="main-body">
+      <h1>404 Page Not Found</h1>
+    </div>
+  );
 }
 
 export default NoPage;

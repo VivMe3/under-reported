@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import '../scss/FeaturedStory.scss';
-import Random from '../imgs/random.jpg';
 import { Link } from 'react-router-dom';
 import { blogPostDescription } from '../config/Api';
 import { getFirstImage, handleDescription } from '../utils/Utils';
+import Skeleton from 'react-loading-skeleton';
+import '../scss/FeaturedStory.scss';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const FeaturedStory = ({ blog }) => {
   const [descriptions, setDescriptions] = useState([]);
@@ -23,7 +24,7 @@ const FeaturedStory = ({ blog }) => {
          <div className='blog-content' dangerouslySetInnerHTML={{__html: getFirstImage(blog.content)}}></div>
         }
         {!getFirstImage(blog.content) && 
-          <div className='blog-content'><img src={Random} alt="Random" /></div>
+          <div className='blog-content'><Skeleton height="40rem"/></div>
         }
         <div className="caption">
           <div className="content">

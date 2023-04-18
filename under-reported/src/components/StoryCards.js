@@ -3,8 +3,8 @@ import '../scss/StoryCards.scss';
 import { Link } from 'react-router-dom';
 import { blogPostDescription } from '../config/Api';
 import { getFirstImage, convertDate, handleDescription } from '../utils/Utils';
-
-import Random from '../imgs/random.jpg';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const StoryCards = ({ blogs }) => {
   //https://eszter.space/async-map/ 
@@ -23,20 +23,20 @@ const StoryCards = ({ blogs }) => {
   } , [blogs]);
 
   const renderedCards = blogs.map((blog, index) => {
-      return (
+    return (
       <div key={`story-${index}`} className="card">
-        <Link className="image" to={`/blog/${blog.id}`}> 
-        {getFirstImage(blog.content) &&
-         <div className='blog-content' dangerouslySetInnerHTML={{__html: getFirstImage(blog.content)}}></div>
-        }
-        {!getFirstImage(blog.content) && 
-          <div className='blog-content'><img src={Random} alt="Random" /></div>
-        }
-            <h3 className="title">{blog.title}</h3>
-            { blog.published && 
-              <p className="date">{convertDate(blog.published, dateFormat)}</p>
-            }
-            <p className="content">{descriptions[index] && descriptions[index].items ? handleDescription(descriptions[index].items[0]['content']) : ''}</p>
+        <Link className="image" to={`/blog/${blog.id}`}>
+          {getFirstImage(blog.content) &&
+            <div className='blog-content' dangerouslySetInnerHTML={{ __html: getFirstImage(blog.content) }}></div>
+          }
+          {!getFirstImage(blog.content) &&
+            <div className='blog-content'><Skeleton height="10rem" /></div>
+          }
+          <h3 className="title">{blog.title}</h3>
+          {blog.published &&
+            <p className="date">{convertDate(blog.published, dateFormat)}</p>
+          }
+          <p className="content">{descriptions[index] && descriptions[index].items ? handleDescription(descriptions[index].items[0]['content']) : ''}</p>
         </Link>
       </div >
     )

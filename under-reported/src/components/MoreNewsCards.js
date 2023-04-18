@@ -1,9 +1,10 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import '../scss/MoreNews.scss';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { blogPostDescription } from '../config/Api';
 import { getFirstImage, convertDate, handleDescription } from '../utils/Utils';
-import Random from '../imgs/random.jpg';
+import Skeleton from 'react-loading-skeleton';
+import '../scss/MoreNews.scss';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const MoreNewsCards = ({ blogs }) => {
   const [descriptions, setDescriptions] = useState([]);
@@ -27,7 +28,7 @@ const MoreNewsCards = ({ blogs }) => {
             <div className='blog-content' dangerouslySetInnerHTML={{ __html: getFirstImage(blog.content) }}></div>
           }
           {!getFirstImage(blog.content) &&
-            <div className='blog-content'><img src={Random} alt="Random" /></div>
+            <div className='blog-content'><Skeleton height="10rem"/></div>
           }
         </div>
         <div className="col-lg-9">

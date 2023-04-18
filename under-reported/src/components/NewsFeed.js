@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { blogPostDescription } from '../config/Api';
 import { convertDate, handleDescription } from '../utils/Utils';
-
 import '../scss/NewsFeed.scss';
 
 const NewsFeed = ({ blogs }) => {

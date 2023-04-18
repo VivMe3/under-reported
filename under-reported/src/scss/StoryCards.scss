@@ -6,24 +6,31 @@
   margin: 1.25em;
 }
 
-.storycards.ui.three.cards>.card {
+.storycards.ui.three.cards > .card {
   width: calc(33.33333333% - 4.5em);
   margin: 1.8em;
 }
 
-.ui.card, .ui.cards>.card, .ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards .card:hover, a.ui.card:hover {
+.ui.card,
+.ui.cards > .card,
+.ui.cards a.card:hover,
+.ui.link.card:hover,
+.ui.link.cards .card:hover,
+a.ui.card:hover {
   box-shadow: none;
 }
 
-.ui.card>.image, .ui.cards>.card>.image {
+.ui.card > .image,
+.ui.cards > .card > .image {
   background: none;
 }
 
-.ui.card>.image img, .ui.cards>.card>.image img {
+.ui.card > .image img,
+.ui.cards > .card > .image img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: .28571429rem;
+  border-radius: 0.28571429rem;
 }
 
 .content {
@@ -39,10 +46,10 @@
     .title {
       margin-top: 0.6em;
     }
-    
+
     &:hover {
       text-decoration: none;
-      
+
       .title {
         text-decoration: underline;
       }
@@ -50,14 +57,12 @@
       .content {
         text-decoration: none;
       }
-      
     }
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .ui.stackable.cards>.card {
+  .ui.stackable.cards > .card {
     margin: 3em 1em !important;
   }
 }
-

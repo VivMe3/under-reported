@@ -1,22 +1,41 @@
 @import "./_variables";
 
-.share-icon {
-    color: black;
-    padding: 0.5em;
-    font-size: 1.5rem;
 
-    &:hover{ 
-        color: rgb(91, 91, 91);
-        cursor: pointer;
-    }
+.blog-wrap {
+  margin: 0 10%;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6 {
+  margin-top: 1.5rem;
+}
+
+.blog-content img {
+  height: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.share-icon {
+  color: black;
+  padding: 0.5em;
+  font-size: 1.5rem;
+
+  &:hover {
+    color: rgb(91, 91, 91);
+    cursor: pointer;
+  }
 }
 
 .author {
-    padding: 1rem 0 2rem;
-    display: flex;
-    align-items: center;
+  padding: 1rem 0 2rem;
+  display: flex;
+  align-items: center;
 
-    svg {
-        padding-right: 0.5rem;
-    }
+  svg {
+    padding-right: 0.5rem;
+  }
 }

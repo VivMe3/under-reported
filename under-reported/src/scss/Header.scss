@@ -1,27 +1,26 @@
 @import "./_variables";
 
 .navbar {
-    .container-fluid {
-        width: 100%;
-    }
+  .container-fluid {
+    width: 100%;
+  }
 }
 
 .logo {
-    width: 5em;
+  width: 5em;
 }
 
 #navbar {
-    padding: 1em;
+  padding: 1em;
 
-    a {
-        padding-right: 2em;
+  a {
+    padding-right: 2em;
 
-            color: black;
-            font-weight: bold;
+    color: black;
+    font-weight: bold;
 
-            &:hover {
-                text-decoration: underline;
-            }
-
+    &:hover {
+      text-decoration: underline;
     }
+  }
 }

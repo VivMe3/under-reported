@@ -2,7 +2,7 @@
 
 .newsfeed {
   height: 100%;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   padding: 1em 2em 2em 2em;
 
   .header {
@@ -11,35 +11,35 @@
   }
 
   .newsItem {
-      padding: 2em 0;
-      border-bottom: lightgray 0.01em solid;
+    padding: 2em 0;
+    border-bottom: lightgray 0.01em solid;
 
-      a {
-        color: black;
-        text-decoration: none;
+    a {
+      color: black;
+      text-decoration: none;
 
-        &:hover {
-          .title {
-            text-decoration: underline;
-          }
+      &:hover {
+        .title {
+          text-decoration: underline;
+        }
 
-          .content {
-            text-decoration: none;
-          }
+        .content {
+          text-decoration: none;
+        }
 
-          .meta {
-            text-decoration: none;
-          }
+        .meta {
+          text-decoration: none;
         }
       }
+    }
 
-      .content {
-        color: #636363;
-      }
+    .content {
+      color: #636363;
+    }
 
-      .meta {
-        margin-top: 0.5em;
-        color: #636363;
+    .meta {
+      margin-top: 0.5em;
+      color: #636363;
     }
   }
 
@@ -47,7 +47,7 @@
     text-align: center;
     padding: 2em 0;
 
-    a{ 
+    a {
       color: $purple;
       text-decoration: none;
 
@@ -61,5 +61,4 @@
       padding: 2em 0 0;
     }
   }
-
 }
