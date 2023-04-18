@@ -12,12 +12,12 @@ const Footer = () => {
       <a href="https://www.facebook.com/profile.php?id=100090854615611" target="_blank" rel="noopener noreferrer" className="item">
         <FontAwesomeIcon icon="fa-brands fa-square-facebook" size="3x" className="white-icon" />
       </a>
-      <a href="/" className="item">
+      {/* <a href="/" className="item">
         <FontAwesomeIcon icon="fa-brands fa-instagram" size="3x" className="white-icon" />
       </a>
       <a href="/" className="item">
         <FontAwesomeIcon icon="fa-brands fa-linkedin" size="3x" className="white-icon" />
-      </a>
+      </a> */}
     </div>
   )
 }
