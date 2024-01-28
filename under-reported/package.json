@@ -1,7 +1,7 @@
 {
   "name": "under-reported",
   "version": "0.1.0",
-  "homepage": "https://VivMe3.github.io/under-reported",
+  "homepage": "https://www.underreportednews.org/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
