@@ -1,7 +1,7 @@
 {
   "name": "under-reported",
   "version": "0.1.0",
-  "homepage": "https://www.underreportednews.org/",
+  "homepage": "https://www.underreportednews.org",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
