@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import { createHashHistory } from 'history';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -17,14 +17,13 @@ import NoPage from './pages/NoPage';
 library.add(fab);
 
 export default () => {
-  const history = createBrowserHistory();
+  const history = createHashHistory();
 
   return (
     <Fragment>
       <Header />
       <Routes history={history}>
         <Route path="/" element={<Home />} exact/>
-        <Route path="under-reported" element={<Home/>} exact/>
         <Route path="more-news" element={<MoreNews />} />
         <Route path="business" element={<Category category="Business" />} />
         <Route path="health" element={<Category category="Health" />} />
